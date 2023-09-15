@@ -98,4 +98,9 @@ describe("Calculator", () => {
   it("should throw an error when dividing by zero (Denominator greater that 1000", () => {
     expect(() => calc(6, "/", 1006)).toThrow("Division by zero");
   });
+
+  // Test case: Invalid input type - received an operator not a number
+  it('should throw an error for invalid input types', () => {
+    expect(() => calc(2, '+', 3 , '-' , '*')).toThrow('Invalid input type');
+  });
 });
