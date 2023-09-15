@@ -50,6 +50,9 @@ function calc(...args) {
       operands.push(arg);
       itShouldBeNumber = false;
     } else if (arg in precedence) {
+      if (itShouldBeNumber) {
+        throw new Error("Invalid input type");
+      }
       while (
         operators.length > 0 &&
         precedence[operators[operators.length - 1]] >= precedence[arg]
