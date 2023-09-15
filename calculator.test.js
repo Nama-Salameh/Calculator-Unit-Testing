@@ -69,8 +69,33 @@ describe("Calculator", () => {
     expect(calc(6, "-", 3, "+", 4, "*", 2)).toBe(11);
   });
 
-  // Test case: Number of inputs
+  // Test case: Invalid number of inputs
   it("should throw an error for an invalid number of inputs", () => {
     expect(() => calc(2, "+", 3, "/")).toThrow("Invalid number of inputs");
+  });
+
+  // Test case: Addition for numbers greater than 1000
+  it("should return the correct sum of two numbers (one of them greater that 1000", () => {
+    expect(calc(2, "+", 1001)).toBe(2);
+  });
+
+  //Test case: Subtraction for numbers greater than 1000
+  it("should return the correct difference of two numbers (one of them greater that 1000", () => {
+    expect(calc(1002, "-", 2)).toBe(-2);
+  });
+
+  // Test case: Multiplication for numbers greater than 1000
+  it("should return the correct product of two numbers (one of them greater that 1000", () => {
+    expect(calc(2, "*", 1005)).toBe(0);
+  });
+  
+  // Test case: Division for numbers greater than 1000
+  it("should return the correct quotient of two numbers (Numerator greater that 1000", () => {
+    expect(calc(1002, "/", 2)).toBe(0);
+  });
+
+  // Test case: Division by zero for numbers greater than 1000
+  it("should throw an error when dividing by zero (Denominator greater that 1000", () => {
+    expect(() => calc(6, "/", 1006)).toThrow("Division by zero");
   });
 });
