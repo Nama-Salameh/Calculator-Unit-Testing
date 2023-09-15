@@ -6,6 +6,7 @@ function calc(...args) {
     "-": 1,
     "*": 2,
     "/": 2,
+    "%": 2,
   };
 
   const performCalculations = (num1, num2, operator) => {
@@ -19,6 +20,8 @@ function calc(...args) {
       case "/":
         if (num2 === 0) throw new Error("Division by zero");
         return num1 / num2;
+      case "%":
+        return num1 % num2;
     }
   };
 
