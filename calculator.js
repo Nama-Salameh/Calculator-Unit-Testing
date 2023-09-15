@@ -31,6 +31,10 @@ function calc(...args) {
     }
   };
 
+  function isValidExpressions(operands, operators) {
+    return operands.length === 1 || operators.length === 0;
+  }
+
   const operands = [];
   const operators = [];
   let itShouldBeNumber = true;
@@ -56,6 +60,8 @@ function calc(...args) {
   }
 
   evaluateExpressions(operands, operators);
+
+  if (!isValidExpressions) throw new Error("Something wrong with Expressions");
 
   return operands[0];
 }
