@@ -22,12 +22,18 @@ function calc(...args) {
     }
   };
 
+  function validateOperands(num1, num2) {
+    if (num1 > 1000) num1 = 0;
+    if (num2 > 1000) num2 = 0;
+    return [num1, num2];
+  }
   const evaluateExpressions = (operands, operators) => {
     while (operators.length > 0) {
       const operator = operators.pop();
       const num2 = operands.pop();
       const num1 = operands.pop();
-      operands.push(performCalculations(num1, num2, operator));
+      const [updatedNum1, updatedNum2] = validateOperands(num1, num2);
+      operands.push(performCalculations(updatedNum1, updatedNum2, operator));
     }
   };
 
