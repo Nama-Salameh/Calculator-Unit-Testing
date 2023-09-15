@@ -88,7 +88,7 @@ describe("Calculator", () => {
   it("should return the correct product of two numbers (one of them greater that 1000", () => {
     expect(calc(2, "*", 1005)).toBe(0);
   });
-  
+
   // Test case: Division for numbers greater than 1000
   it("should return the correct quotient of two numbers (Numerator greater that 1000", () => {
     expect(calc(1002, "/", 2)).toBe(0);
@@ -100,7 +100,12 @@ describe("Calculator", () => {
   });
 
   // Test case: Invalid input type - received an operator not a number
-  it('should throw an error for invalid input types', () => {
-    expect(() => calc(2, '+', 3 , '-' , '*')).toThrow('Invalid input type');
+  it("should throw an error for invalid input types", () => {
+    expect(() => calc(2, "+", 3, "-", "*")).toThrow("Invalid input type");
+  });
+
+  // Test case: Remainder 
+  it("should return the correct remainder when dividing two numbers", () => {
+    expect(calc(9, "%", 2)).toBe(1);
   });
 });
