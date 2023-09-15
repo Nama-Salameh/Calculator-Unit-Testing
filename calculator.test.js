@@ -69,4 +69,8 @@ describe("Calculator", () => {
     expect(calc(6, "-", 3, "+", 4, "*", 2)).toBe(11);
   });
 
+  // Test case: Number of inputs
+  it("should throw an error for an invalid number of inputs", () => {
+    expect(() => calc(2, "+", 3, "/")).toThrow("Invalid number of inputs");
+  });
 });
